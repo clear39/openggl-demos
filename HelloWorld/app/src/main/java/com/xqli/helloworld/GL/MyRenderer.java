@@ -3,6 +3,9 @@ package com.xqli.helloworld.GL;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLU;
 
+import com.xqli.helloworld.GL.charts.Square;
+import com.xqli.helloworld.GL.charts.Triangle;
+
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.nio.FloatBuffer;
@@ -12,6 +15,9 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class MyRenderer extends BaseRenderer {
 
+    private Triangle mTriangle;
+    private Square mSquare;
+
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
         log("onSurfaceCreated " + config);
@@ -19,6 +25,10 @@ public class MyRenderer extends BaseRenderer {
         //清除屏幕缓冲区，执行这一行屏幕为黑色背景
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT|GL10.GL_DEPTH_BUFFER_BIT);
         //gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
+
+
+        mTriangle = new Triangle();
+        mSquare = new Square();
     }
 
     @Override
@@ -39,6 +49,7 @@ public class MyRenderer extends BaseRenderer {
 
     @Override
     public void onDrawFrame(GL10 gl) {
+        log("onDrawFrame ");
         //每次绘制需要清理屏幕
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT|GL10.GL_DEPTH_BUFFER_BIT);
 
@@ -46,21 +57,8 @@ public class MyRenderer extends BaseRenderer {
         gl.glMatrixMode(GL10.GL_MODELVIEW);
         gl.glLoadIdentity();
 
-        float[] cs = new float[]{
-                0f,1f,0f,
-                -1f,-1f,0f,
-                1f,-1f,0f
-        };
 
-        ByteBuffer ibb = ByteBuffer.allocate(cs.length*4);
-        ibb.order(ByteOrder.nativeOrder());
-        FloatBuffer floatBuffer = ibb.asFloatBuffer();
-        floatBuffer.put(cs);
-        floatBuffer.position(0);
-
-        gl.glVertexPointer(3,GL10.GL_FLOAT,0,floatBuffer);
-
-        gl.glDrawArrays(GL10.GL_TRIANGLES,0,3);
-
+        mTriangle.draw(gl);
+        mSquare.draw(gl);
     }
 }
