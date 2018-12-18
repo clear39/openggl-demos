@@ -24,8 +24,8 @@ public class GLActivity extends Activity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
         mGLSurfaceView = new MyGLSurfaceView(this);
-        //mGLSurfaceView.setRenderer(new MyRenderer());
-        mGLSurfaceView.setRenderer(new OpenGLRenderer2());
+        mGLSurfaceView.setRenderer(new MyRenderer());
+        //mGLSurfaceView.setRenderer(new OpenGLRenderer2());
         setContentView(mGLSurfaceView);
     }
 }
