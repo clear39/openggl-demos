@@ -8,6 +8,7 @@ import android.support.annotation.Nullable;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.xqli.helloworld.GL.lesson2.MyDemoRenderer;
 import com.xqli.helloworld.GL.lesson2.OpenGLRenderer2;
 
 import javax.microedition.khronos.egl.EGLConfig;

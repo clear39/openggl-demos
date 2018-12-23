@@ -27,8 +27,7 @@ public class Triangle {
 
 
     public void draw(GL10 gl) {
-
-
+        gl.glColor4f(1.0f,0.0f,0.0f,1.0f);
         // Enabled the vertex buffer for writing and to be used during rendering.
         gl.glEnableClientState(GL10.GL_VERTEX_ARRAY);// OpenGL docs.
         // Specifies the location and data format of an array of vertex coordinates to use when rendering.
