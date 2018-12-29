@@ -1,0 +1,3 @@
+include ':app', ':opengllibs', ':samples3_1'
+project(':opengllibs').projectDir = new File('libs/opengllibs')
+project(':samples3_1').projectDir = new File('Samples/samples3_1')
