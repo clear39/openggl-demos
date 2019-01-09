@@ -3,6 +3,10 @@ package com.xqli.helloworld.GL;
 import android.opengl.GLSurfaceView;
 import android.opengl.GLU;
 
+import com.xqli.helloworld.GL.charts.BaseGraph;
+import com.xqli.helloworld.GL.charts.Line;
+import com.xqli.helloworld.GL.charts.Ring;
+import com.xqli.helloworld.GL.charts.Sphere;
 import com.xqli.helloworld.GL.charts.Square;
 import com.xqli.helloworld.GL.charts.Triangle;
 
@@ -15,8 +19,7 @@ import javax.microedition.khronos.opengles.GL10;
 
 public class MyRenderer extends BaseRenderer {
 
-    private Triangle mTriangle;
-    private Square mSquare;
+    private BaseGraph mGraph;
 
     @Override
     public void onSurfaceCreated(GL10 gl, EGLConfig config) {
@@ -25,8 +28,11 @@ public class MyRenderer extends BaseRenderer {
         //清除屏幕缓冲区，执行这一行屏幕为黑色背景
         gl.glClear(GL10.GL_COLOR_BUFFER_BIT);
 
-        mTriangle = new Triangle();
-        mSquare = new Square();
+        mGraph = new Line();
+        //mGraph = new Ring();
+        //mGraph = new Sphere();
+        //mGraph = new Triangle();
+        //mGraph = new Square();
     }
 
     @Override
@@ -65,7 +71,10 @@ public class MyRenderer extends BaseRenderer {
         //upX,upY,upZ 相当于眼睛朝哪个方向看
         GLU.gluLookAt(gl,0,0,5,0,0,0,0,1,0);
 
-        mTriangle.draw(gl);
-        //mSquare.draw(gl);
+
+        gl.glRotatef(xrotate, 1, 0, 0);
+        gl.glRotatef(yrotate, 0, 1, 0);
+
+        mGraph.draw(gl);
     }
 }

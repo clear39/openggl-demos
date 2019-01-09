@@ -7,7 +7,7 @@ import java.nio.ShortBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-public class Square {
+public class Square extends  BaseGraph{
     // Our vertices.
     private float vertices[] = {
             -1.0f,  1.0f, 0.0f,// 0, Top Left

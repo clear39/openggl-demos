@@ -12,6 +12,11 @@ public abstract class BaseRenderer implements GLSurfaceView.Renderer {
     private static final String TAG = "Renderer";
 
 
+    //
+    protected float xrotate = 0f;
+    protected float yrotate = 0f;
+
+
 
     protected void log(String logStr){
         Log.d(TAG,logStr);

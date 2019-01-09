@@ -6,7 +6,7 @@ import java.nio.FloatBuffer;
 
 import javax.microedition.khronos.opengles.GL10;
 
-public class Triangle {
+public class Triangle extends BaseGraph{
 
     private final float[] vertices = {
             0f,1f,0f,
